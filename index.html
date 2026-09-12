@@ -262,29 +262,81 @@
       align-items: center;
     }
 
-    .about-visual {
-      min-height: 420px;
+.about-visual {
+  position: relative;
+  min-height: 460px;
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 40px;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(102, 0, 0, 0.28), transparent 28%),
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05), transparent 25%),
+    linear-gradient(135deg, #0e0e12, #1d1f25);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+}
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+.scale-diagram {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+  z-index: 2;
+}
 
-      background:
-        radial-gradient(circle at center, rgba(102,0,0,0.25), transparent 35%),
-        linear-gradient(135deg, #121212, #2a2a2a);
+.scale-line {
+  position: absolute;
+  left: 28px;
+  top: 50px;
+  bottom: 50px;
+  width: 3px;
+  background: linear-gradient(to bottom, #ffffff, #660000, #ffffff);
+  border-radius: 999px;
+  opacity: 0.9;
+}
 
-      color: white;
-      border-radius: 8px;
+.scale-node {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
 
-      text-align: center;
-      padding: 30px;
-    }
+.node-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 0 6px rgba(255,255,255,0.08),
+              0 0 18px rgba(255,255,255,0.35);
+  flex-shrink: 0;
+  z-index: 2;
+}
 
-    .about-visual div {
-      font-size: 1.4rem;
-      letter-spacing: 3px;
-      line-height: 2;
-    }
+.node-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+  padding: 16px 18px;
+  border-radius: 14px;
+  color: white;
+  width: 100%;
+}
+
+.node-card h3 {
+  margin: 0 0 6px 0;
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.node-card p {
+  margin: 0;
+  color: rgba(255,255,255,0.78);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
 
     /* Join */
 
@@ -615,19 +667,27 @@
       </div>
 
 
-      <div class="about-visual">
+<div class="about-visual">
 
-        <div>
-          MOLECULES<br>
-          ↓<br>
-          MESOSCALE<br>
-          ↓<br>
-          CONTINUUM<br>
-          ↓<br>
-          AEROSPACE
-        </div>
+  <div class="scale-line"></div>
 
+  <div class="scale-diagram">
+
+    <div class="scale-node">
+      <span class="node-dot"></span>
+      <div class="node-card">
+        <h3>Molecules</h3>
+        <p>Atomistic physics, molecular dynamics, interfaces, and thermodynamics.</p>
       </div>
+    </div>
+
+    <div class="scale-node">
+      <span class="node-dot"></span>
+      <div class="node-card">
+        <h3>Mesoscale</h3>
+        <p>Coarse graining, microstructure, clusters, and emergent transport behavior.</p>
+      </div>
+    </div>
 
     </div>
 
