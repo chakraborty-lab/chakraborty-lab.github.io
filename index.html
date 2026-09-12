@@ -335,6 +335,62 @@
   line-height: 1.45;
 }
 
+    /* Publications */
+
+.publication-list {
+  border-top: 1px solid #dddddd;
+}
+
+.publication-item {
+  display: grid;
+  grid-template-columns: 70px 1fr 35px;
+  gap: 18px;
+  align-items: center;
+
+  padding: 18px 0;
+  border-bottom: 1px solid #dddddd;
+}
+
+.pub-year {
+  color: #660000;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.pub-info h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+.pub-info p {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.pub-info span {
+  margin: 0 6px;
+  color: #999;
+}
+
+.pub-link {
+  color: #660000;
+  text-decoration: none;
+  font-size: 1.3rem;
+  text-align: right;
+  transition: 0.2s;
+}
+
+.pub-link:hover {
+  transform: translateY(-2px);
+}
+
+.publications-footer {
+  margin-top: 28px;
+}
+
     /* Join */
 
     .join {
@@ -743,22 +799,63 @@
 
   <!-- Publications placeholder -->
 
-  <section id="publications" class="about">
+<section id="publications" class="about">
 
-    <div class="section-label">
-      Publications
+  <div class="section-label">
+    Publications
+  </div>
+
+  <h2 class="section-title">
+    Recent work
+  </h2>
+
+  <p class="section-intro">
+    Selected recent publications from CHAKRA Lab and collaborators.
+  </p>
+
+  <div class="publication-list">
+
+    <div class="publication-item">
+
+      <div class="pub-year">
+        2026
+      </div>
+
+      <div class="pub-info">
+        <h3>
+          Molecular Dynamics Investigation of Mass Transport during
+          Evaporation for the Binary System of n-Dodecane and Nitrogen
+        </h3>
+
+        <p>
+          S. Chakraborty, B. Kim, L. Qiao
+          <span>·</span>
+          <em>Journal of Physical Chemistry B</em>
+        </p>
+      </div>
+
+      <a class="pub-link"
+         href="https://pubs.acs.org/doi/10.1021/acs.jpcb.6c00493"
+         target="_blank"
+         aria-label="View publication">
+        ↗
+      </a>
+
     </div>
 
-    <h2 class="section-title">
-      Recent work
-    </h2>
+  </div>
 
-    <p class="section-intro">
-      Publications, preprints and research highlights
-      will be added here.
-    </p>
+  <div class="publications-footer">
 
-  </section>
+    <a class="button"
+       href="https://scholar.google.com/citations?user=_kJvRBMAAAAJ&hl=en"
+       target="_blank">
+      View All Publications
+    </a>
+
+  </div>
+
+</section>
 
 
   <!-- Join -->
