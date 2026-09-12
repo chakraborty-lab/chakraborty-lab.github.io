@@ -1,21 +1,663 @@
-<title>Chakraborty Lab</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CHAKRA Lab | Mississippi State University</title>
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f7f7;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 18px 7%;
+
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid #e6e6e6;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      color: #660000;
+    }
+
+    .nav-links a {
+      margin-left: 28px;
+      text-decoration: none;
+      color: #222;
+      font-size: 0.95rem;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #660000;
+    }
+
+    /* Hero */
+
+    .hero {
+      min-height: 88vh;
+
+      display: flex;
+      align-items: center;
+
+      padding: 80px 8%;
+
+      background:
+        radial-gradient(circle at 85% 20%, rgba(102,0,0,0.10), transparent 35%),
+        linear-gradient(135deg, #ffffff, #f1f1f1);
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .eyebrow {
+      color: #660000;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 1.05;
+      margin-bottom: 24px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      font-weight: 400;
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      font-size: 1.15rem;
+      color: #555;
+      margin-bottom: 35px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 24px;
+
+      background: #660000;
+      color: white;
+
+      text-decoration: none;
+      border-radius: 4px;
+
+      transition: 0.25s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: #4d0000;
+    }
+
+    /* Generic Sections */
+
+    section {
+      padding: 90px 8%;
+    }
+
+    .section-label {
+      color: #660000;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .section-intro {
+      max-width: 750px;
+      color: #666;
+      font-size: 1.05rem;
+      margin-bottom: 50px;
+    }
+
+    /* Research scale bar */
+
+    .scale-section {
+      background: #111;
+      color: white;
+    }
+
+    .scale-section .section-intro {
+      color: #bbbbbb;
+    }
+
+    .scale-track {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin-top: 50px;
+    }
+
+    .scale-step {
+      padding: 35px 20px;
+      background: #1d1d1d;
+      border-top: 3px solid #660000;
+    }
+
+    .scale-step h3 {
+      margin-bottom: 10px;
+    }
+
+    .scale-step p {
+      color: #bbbbbb;
+      font-size: 0.92rem;
+    }
+
+    /* Research Cards */
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .research-card {
+      background: white;
+      padding: 35px;
+
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+
+      transition: 0.25s;
+    }
+
+    .research-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 35px rgba(0,0,0,0.08);
+    }
+
+    .research-number {
+      font-size: 0.85rem;
+      color: #660000;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    .research-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .research-card p {
+      color: #666;
+    }
+
+    /* About */
+
+    .about {
+      background: white;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about-visual {
+      min-height: 420px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background:
+        radial-gradient(circle at center, rgba(102,0,0,0.25), transparent 35%),
+        linear-gradient(135deg, #121212, #2a2a2a);
+
+      color: white;
+      border-radius: 8px;
+
+      text-align: center;
+      padding: 30px;
+    }
+
+    .about-visual div {
+      font-size: 1.4rem;
+      letter-spacing: 3px;
+      line-height: 2;
+    }
+
+    /* Join */
+
+    .join {
+      background: #660000;
+      color: white;
+      text-align: center;
+    }
+
+    .join .section-label {
+      color: white;
+    }
+
+    .join p {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      color: #f2dddd;
+    }
+
+    .join .button {
+      background: white;
+      color: #660000;
+    }
+
+    /* Footer */
+
+    footer {
+      background: #111;
+      color: #ccc;
+      padding: 45px 8%;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 800px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .research-grid,
+      .about-grid,
+      .scale-track {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 110px;
+        padding-bottom: 110px;
+      }
+
+    }
+
+  </style>
 </head>
+
 
 <body>
 
-  <h1>Chakraborty Lab</h1>
+  <!-- Navigation -->
 
-  <h2>Mississippi State University</h2>
+  <nav>
 
-  <p>
-    We study multiscale fluid behavior using molecular simulation,
-    computational modeling, propulsion science, phase-change physics,
-    and artificial intelligence.
-  </p>
+    <div class="logo">
+      CHAKRA LAB
+    </div>
 
-  <p>
-    Website under construction.
-  </p>
+    <div class="nav-links">
+      <a href="#research">Research</a>
+      <a href="#about">About</a>
+      <a href="#people">People</a>
+      <a href="#publications">Publications</a>
+      <a href="#join">Join Us</a>
+    </div>
+
+  </nav>
+
+
+  <!-- Hero -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="eyebrow">
+        Mississippi State University
+      </div>
+
+      <h1>
+        From Molecules<br>
+        to Aerospace Systems
+      </h1>
+
+      <h2>
+        Multiscale computational science for fluids,
+        propulsion, materials, and extreme environments.
+      </h2>
+
+      <p>
+        The CHAKRA Lab develops physics-based and data-driven
+        computational methods to understand complex fluid and material
+        behavior across molecular, mesoscopic, and continuum scales.
+      </p>
+
+      <a class="button" href="#research">
+        Explore Our Research
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- Across scales -->
+
+  <section class="scale-section">
+
+    <div class="section-label">
+      Research Across Scales
+    </div>
+
+    <h2 class="section-title">
+      Connecting microscopic physics to engineering systems
+    </h2>
+
+    <p class="section-intro">
+      Our research bridges molecular-scale interactions,
+      emergent mesoscale behavior, continuum transport,
+      and aerospace applications.
+    </p>
+
+    <div class="scale-track">
+
+      <div class="scale-step">
+        <h3>Atomistic</h3>
+        <p>
+          Molecular dynamics, reactive systems,
+          interfacial physics and thermodynamics.
+        </p>
+      </div>
+
+      <div class="scale-step">
+        <h3>Mesoscale</h3>
+        <p>
+          Coarse graining, microstructure,
+          particle systems and multiphase phenomena.
+        </p>
+      </div>
+
+      <div class="scale-step">
+        <h3>Continuum</h3>
+        <p>
+          Transport, fluid mechanics,
+          phase change and reduced-order models.
+        </p>
+      </div>
+
+      <div class="scale-step">
+        <h3>Aerospace Systems</h3>
+        <p>
+          Propulsion, extreme environments,
+          advanced fluids and engineering applications.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Research -->
+
+  <section id="research">
+
+    <div class="section-label">
+      Research
+    </div>
+
+    <h2 class="section-title">
+      What we study
+    </h2>
+
+    <p class="section-intro">
+      We combine computational physics,
+      molecular simulation and artificial intelligence
+      to study complex engineering systems.
+    </p>
+
+    <div class="research-grid">
+
+      <div class="research-card">
+        <div class="research-number">01</div>
+
+        <h3>
+          Molecular & Multiscale Modeling
+        </h3>
+
+        <p>
+          Molecular dynamics, coarse-grained modeling,
+          phase behavior, near-critical fluids,
+          interfaces and transport phenomena.
+        </p>
+      </div>
+
+
+      <div class="research-card">
+        <div class="research-number">02</div>
+
+        <h3>
+          Propulsion & Energy
+        </h3>
+
+        <p>
+          Fuel behavior, high-pressure fluids,
+          phase change, advanced propulsion concepts,
+          energetic systems and thermal-fluid processes.
+        </p>
+      </div>
+
+
+      <div class="research-card">
+        <div class="research-number">03</div>
+
+        <h3>
+          Extreme Environments & Materials
+        </h3>
+
+        <p>
+          Gas-surface interactions, very-low-Earth-orbit environments,
+          reactive materials and physics under extreme conditions.
+        </p>
+      </div>
+
+
+      <div class="research-card">
+        <div class="research-number">04</div>
+
+        <h3>
+          AI for Physical Modeling
+        </h3>
+
+        <p>
+          Machine learning, scientific AI,
+          surrogate models, coarse graining,
+          and data-driven discovery for complex physical systems.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- About -->
+
+  <section class="about" id="about">
+
+    <div class="about-grid">
+
+      <div>
+
+        <div class="section-label">
+          About the Lab
+        </div>
+
+        <h2 class="section-title">
+          Computational science across scales
+        </h2>
+
+        <p>
+          CHAKRA Lab is a research group at Mississippi State University
+          focused on understanding fluid, material and propulsion phenomena
+          that span multiple spatial and temporal scales.
+        </p>
+
+        <br>
+
+        <p>
+          Our goal is to connect fundamental physics with predictive
+          computational tools that can improve the modeling and design
+          of aerospace and energy systems.
+        </p>
+
+      </div>
+
+
+      <div class="about-visual">
+
+        <div>
+          MOLECULES<br>
+          ↓<br>
+          MESOSCALE<br>
+          ↓<br>
+          CONTINUUM<br>
+          ↓<br>
+          AEROSPACE
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- People placeholder -->
+
+  <section id="people">
+
+    <div class="section-label">
+      People
+    </div>
+
+    <h2 class="section-title">
+      Meet the team
+    </h2>
+
+    <p class="section-intro">
+      Our group brings together students and collaborators
+      interested in computational fluid mechanics,
+      molecular simulation, propulsion and scientific machine learning.
+    </p>
+
+    <p>
+      Team profiles coming soon.
+    </p>
+
+  </section>
+
+
+  <!-- Publications placeholder -->
+
+  <section id="publications" class="about">
+
+    <div class="section-label">
+      Publications
+    </div>
+
+    <h2 class="section-title">
+      Recent work
+    </h2>
+
+    <p class="section-intro">
+      Publications, preprints and research highlights
+      will be added here.
+    </p>
+
+  </section>
+
+
+  <!-- Join -->
+
+  <section class="join" id="join">
+
+    <div class="section-label">
+      Join CHAKRA Lab
+    </div>
+
+    <h2 class="section-title">
+      Interested in multiscale computational research?
+    </h2>
+
+    <p>
+      We welcome motivated undergraduate,
+      master's and doctoral students interested in
+      molecular simulation, fluid mechanics,
+      propulsion and AI-enabled scientific computing.
+    </p>
+
+    <a class="button" href="mailto:your-email@msstate.edu">
+      Contact Us
+    </a>
+
+  </section>
+
+
+  <!-- Footer -->
+
+  <footer>
+
+    <p>
+      <strong>CHAKRA Lab</strong><br>
+      Department of Aerospace Engineering<br>
+      Mississippi State University
+    </p>
+
+    <br>
+
+    <p>
+      © 2026 CHAKRA Lab
+    </p>
+
+  </footer>
 
 </body>
 </html>
