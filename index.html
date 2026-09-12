@@ -66,14 +66,39 @@
     .hero {
       min-height: 88vh;
 
-      display: flex;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
       align-items: center;
+      gap: 50px;
 
       padding: 80px 8%;
 
       background:
-        radial-gradient(circle at 85% 20%, rgba(102,0,0,0.10), transparent 35%),
-        linear-gradient(135deg, #ffffff, #f1f1f1);
+      radial-gradient(circle at 85% 20%, rgba(102,0,0,0.10), transparent 35%),
+      linear-gradient(135deg, #ffffff, #f1f1f1);
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 460px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 16px 35px rgba(0,0,0,0.12);
+      background: #ddd;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
     }
 
     .hero-content {
@@ -300,6 +325,14 @@
 
     @media (max-width: 800px) {
 
+        .hero {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-visual {
+          min-height: 300px;
+        }
+
       .nav-links {
         display: none;
       }
@@ -365,37 +398,43 @@
 
   <!-- Hero -->
 
-  <section class="hero">
+<section class="hero">
 
-    <div class="hero-content">
+  <div class="hero-content">
 
-      <div class="eyebrow">
-        Mississippi State University
-      </div>
-
-      <h1>
-        From Molecules<br>
-        to Aerospace Systems
-      </h1>
-
-      <h2>
-        Multiscale computational science for fluids,
-        propulsion, materials, and extreme environments.
-      </h2>
-
-      <p>
-        The CHAKRA Lab develops physics-based and data-driven
-        computational methods to understand complex fluid and material
-        behavior across molecular, mesoscopic, and continuum scales.
-      </p>
-
-      <a class="button" href="#research">
-        Explore Our Research
-      </a>
-
+    <div class="eyebrow">
+      Mississippi State University
     </div>
 
-  </section>
+    <h1>
+      From Molecules<br>
+      to Aerospace Systems
+    </h1>
+
+    <h2>
+      Multiscale computational science for fluids,
+      propulsion, materials, and extreme environments.
+    </h2>
+
+    <p>
+      The CHAKRA Lab develops physics-based and data-driven
+      computational methods to understand complex fluid and material
+      behavior across molecular, mesoscopic, and continuum scales.
+    </p>
+
+    <a class="button" href="#research">
+      Explore Our Research
+    </a>
+
+  </div>
+
+  <div class="hero-visual">
+    <img src="hero1.jpg" alt="Research image 1" class="hero-slide active">
+    <img src="hero2.jpg" alt="Research image 2" class="hero-slide">
+    <img src="hero3.jpeg" alt="Research image 3" class="hero-slide">
+  </div>
+
+</section>
 
 
   <!-- Across scales -->
@@ -702,6 +741,17 @@
     </p>
 
   </footer>
+
+  <script>
+  const slides = document.querySelectorAll('.hero-slide');
+  let currentSlide = 0;
+
+  setInterval(() => {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+  }, 3000);
+</script>
 
 </body>
 </html>
