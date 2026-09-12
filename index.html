@@ -315,8 +315,28 @@
         padding-top: 110px;
         padding-bottom: 110px;
       }
-
     }
+      .social-links {
+        display: flex;
+        gap: 18px;
+        margin: 22px 0;
+        align-items: center;
+      }
+
+      .social-links a {
+        display: inline-flex;
+        align-items: center;
+      }
+    
+      .social-links img {
+        width: 32px;
+        height: 32px;
+        transition: transform 0.2s ease;
+      }
+
+      .social-links img:hover {
+        transform: translateY(-3px);
+      }
 
   </style>
 </head>
@@ -651,10 +671,31 @@
       Mississippi State University<br>
       321 Walker Hall<br>
       Starkville, MS 39762
-      
     </p>
 
-    <br>
+    <div class="social-links">
+
+    <a href="https://www.linkedin.com/in/suman-chakraborty-1b151249/"
+       target="_blank"
+       aria-label="LinkedIn">
+
+      <img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+        alt="LinkedIn">
+
+    </a>
+
+    <a href="https://scholar.google.com/citations?user=_kJvRBMAAAAJ&hl=en"
+       target="_blank"
+       aria-label="Google Scholar">
+
+      <img
+        src="https://cdn.simpleicons.org/googlescholar"
+        alt="Google Scholar">
+
+    </a>
+
+  </div>
 
     <p>
       © 2026 CHAKRA Lab
