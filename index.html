@@ -410,6 +410,32 @@
       text-align: center;
     }
 
+    .join-opportunities {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1100px;
+  margin: 35px auto;
+  text-align: left;
+}
+
+.join-item {
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.20);
+  border-radius: 10px;
+  padding: 24px;
+}
+
+.join-item h3 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.join-item p {
+  color: #f2dddd;
+  margin: 0;
+}
+
     .join .section-label {
       color: white;
     }
@@ -440,6 +466,11 @@
     /* Responsive */
 
     @media (max-width: 800px) {
+
+
+        .join-opportunities {
+          grid-template-columns: 1fr;
+        }
 
         .hero {
           grid-template-columns: 1fr;
@@ -890,11 +921,39 @@
     </h2>
 
     <p>
-      We welcome motivated undergraduate,
-      master's and doctoral students interested in
-      molecular simulation, fluid mechanics,
-      propulsion and AI-enabled scientific computing.
+  We welcome curious and motivated students interested in
+  computational aerospace research.
+</p>
+
+<div class="join-opportunities">
+
+  <div class="join-item">
+    <h3>PhD Students</h3>
+    <p>
+      We currently have openings for PhD students interested in
+      molecular simulation, multiscale modeling, propulsion,
+      fluid mechanics, and AI-enabled scientific computing.
     </p>
+  </div>
+
+  <div class="join-item">
+    <h3>Master's Students</h3>
+    <p>
+      Master's students are encouraged to reach out to discuss
+      thesis and research opportunities aligned with the group's work.
+    </p>
+  </div>
+
+  <div class="join-item">
+    <h3>Undergraduate Researchers</h3>
+    <p>
+      Undergraduate students interested in research experience
+      in simulation, propulsion, fluid mechanics, or scientific computing
+      are welcome to contact us.
+    </p>
+  </div>
+
+</div>
 
     <a class="button" href="mailto:sc3169@msstate.edu">
       Contact Us
